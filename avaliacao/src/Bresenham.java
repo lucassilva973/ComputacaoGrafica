@@ -32,7 +32,11 @@ public class Bresenham {
         x = x1;
         y = y1;
         
-        
+        if (x == x2){
+            for ( y = y1; y < y2;y++){
+                g.drawLine(x, altura - y,x, altura - y);
+            }
+        }
         while (x < x2){
             if(p<0){
                 p += c1;
@@ -44,11 +48,7 @@ public class Bresenham {
             x++;
             g.drawLine(x, altura - y,x, altura - y);
         }
-        if (x == x2){
-            for ( y = y1; y < y2;y++){
-                g.drawLine(x, altura - y,x, altura - y);
-            }
-        }
+       
     
     
     }
