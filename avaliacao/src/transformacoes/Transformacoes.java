@@ -18,17 +18,17 @@ public class Transformacoes {
                                  {0,Ey,0},
                                  {0,0,1}}; 
         int[] novos_pontos = new int[3];
-        for(int a=0;a<3;a++){
-            int soma=0;
-            int n_p=0;
-            for(int b=0;b<3;b++){             
+        for(int i=0;i<3;i++){
+            double soma=0.0;
+            
+            for(int j=0;j<3;j++){             
          
-                n_p = pontos[a] * matriz_escala[a][b];
-                soma+=n_p;
+                soma+= pontos[j] * matriz_escala[i][j];
                 
-                
+             
             }
-            novos_pontos[a] = soma;
+            
+            novos_pontos[i] = (int) soma;
         }
         System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
         return novos_pontos;
@@ -41,17 +41,17 @@ public class Transformacoes {
                                      {0,0,1}};
         
         int[] novos_pontos = new int[3];
-        for(int a=0;a<3;a++){
-            int soma=0;
-            int n_p=0;
-            for(int b=0;b<3;b++){             
+        for(int i=0;i<3;i++){
+            double soma=0.0;
+            
+            for(int j=0;j<3;j++){             
          
-                n_p = pontos[b] * matriz_translacao[a][b];
-                soma+=n_p;
+                soma+= pontos[j] * matriz_translacao[i][j];
                 
-                
+             
             }
-            novos_pontos[a] = soma;
+            
+            novos_pontos[i] = (int) soma;
         }
         
         return novos_pontos;
@@ -69,17 +69,17 @@ public class Transformacoes {
         System.out.println("Sen: " + Math.sin(Teta));
         System.out.println();
         int[] novos_pontos = new int[3];
-        for(int a=0;a<3;a++){
-            int soma=0;
-            double n_p=0;
-            for(int b=0;b<3;b++){             
+        for(int i=0;i<3;i++){
+            double soma=0.0;
+            
+            for(int j=0;j<3;j++){             
          
-                n_p = pontos[b] * matriz_rotacao[a][b];
-                soma+=Math.round(n_p);
+                soma+= pontos[j] * matriz_rotacao[i][j];
                 
-                System.out.println("multiplicacao: " + n_p);
+             
             }
-            novos_pontos[a] = soma;
+            
+            novos_pontos[i] = (int) soma;
         }
         System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
         return novos_pontos; 
@@ -92,17 +92,17 @@ public class Transformacoes {
                                     {0,0,1}};
                                    
         int[] novos_pontos = new int[3];
-        for(int a=0;a<3;a++){
-            int soma=0;
-            int n_p=0;
-            for(int b=0;b<3;b++){             
+        for(int i=0;i<3;i++){
+            double soma=0.0;
+            
+            for(int j=0;j<3;j++){             
          
-                n_p = pontos[b] * matriz_escalaArb[a][b];
-                soma+=Math.round(n_p);
+                soma+= pontos[j] * matriz_escalaArb[i][j];
+                
              
             }
             
-            novos_pontos[a] = soma;
+            novos_pontos[i] = (int) soma;
         }
         System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
         return novos_pontos;
@@ -116,20 +116,17 @@ public class Transformacoes {
                                         {0,0,1}};
         
         int[] novos_pontos = new int[3];
-        for(int a=0;a<3;a++){
-            int soma=0;
-            double n_p=0;
-            for(int b=0;b<3;b++){             
-                //pontos[2]  matriz_rotacaoArb[0][2]
-                //
-                //
-                //
-                n_p = pontos[b] * matriz_rotacaoArb[a][b];
-                soma+=Math.round(n_p);
-                System.out.println("multiplicacao: " + n_p);
+        for(int i=0;i<3;i++){
+            double soma=0.0;
+            
+            for(int j=0;j<3;j++){             
+         
+                soma+= pontos[j] * matriz_rotacaoArb[i][j];
                 
+             
             }
-            novos_pontos[a] = soma;
+            
+            novos_pontos[i] = (int) soma;
         }
         System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
         return novos_pontos; 
