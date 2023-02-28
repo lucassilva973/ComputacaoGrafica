@@ -25,8 +25,9 @@ public class Main {
                              "[1] Translacao\n" +
                              "[2] Escala\n" +
                              "[3] Rotacao\n" +
-                             "[4] Escala com ponto fixo arbitrario pArb(Arbx, Abry)\n"+
-                             "[5] Rotacao com ponto fixo arbitrario pArb(Arbx, Abry)\n"+
+                             "[4] Espelhamento\n"+
+                             "[5] Escala com ponto fixo arbitrario pArb(Arbx, Abry)\n"+
+                             "[6] Rotacao com ponto fixo arbitrario pArb(Arbx, Abry)\n"+
                              "================================================================\n");
           
           
@@ -93,7 +94,21 @@ public class Main {
                 
                 novo.triangulo(frame,panel,pt1_t,pt2_t,pt3_t);
                 break;
+            
             case 4:
+                
+                g.setColor(Color.RED);
+                g.drawLine(frame.getWidth()/2,0,frame.getWidth()/2,frame.getHeight());
+                g.drawLine(0,frame.getHeight()/2,frame.getWidth(),frame.getHeight()/2);
+                
+                pt1_t = a.espelhamento(pt1);
+                pt2_t = a.espelhamento(pt2);
+                pt3_t = a.espelhamento(pt3);
+                
+                novo.triangulo(frame,panel,pt1_t,pt2_t,pt3_t);
+                break;
+            
+            case 5:
                 
                 g.setColor(Color.RED);
                 g.drawLine(frame.getWidth()/2,0,frame.getWidth()/2,frame.getHeight());
@@ -105,7 +120,7 @@ public class Main {
                 
                 novo.triangulo(frame,panel,pt1_t,pt2_t,pt3_t);
                 break;
-            case 5:
+            case 6:
                 
                 g.setColor(Color.RED);
                 g.drawLine(frame.getWidth()/2,0,frame.getWidth()/2,frame.getHeight());

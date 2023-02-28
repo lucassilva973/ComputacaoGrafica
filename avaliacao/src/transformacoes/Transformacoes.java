@@ -85,6 +85,17 @@ public class Transformacoes {
         return novos_pontos; 
     }
     
+    public static int[] espelhamento(int[] pontos){
+        
+        int[] novos_pontos = new int[3];
+        
+        novos_pontos[0] =  pontos[0];
+        novos_pontos[1] =  - pontos[1];
+        
+        
+        return novos_pontos; 
+    }
+    
     //EscalaArb//////////////////////////////////////////////////
     public static int[] escalaArb(int Ex,int Ey, int[] pontos, int[] pontosArb){
         int[][] matriz_escalaArb = {{Ex,0,pontosArb[0]*(1-Ex)},
