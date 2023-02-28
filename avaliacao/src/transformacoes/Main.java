@@ -53,6 +53,7 @@ public class Main {
                 g.setColor(Color.RED);
                 g.drawLine(frame.getWidth()/2,0,frame.getWidth()/2,frame.getHeight());
                 g.drawLine(0,frame.getHeight()/2,frame.getWidth(),frame.getHeight()/2);
+                g.drawLine(0,frame.getHeight()/2,frame.getWidth(),frame.getHeight()/2);
                 
                 novo.triangulo(frame,panel,pt1,pt2,pt3);  
                 break;

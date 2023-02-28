@@ -30,7 +30,7 @@ public class Transformacoes {
             
             novos_pontos[i] = (int) soma;
         }
-        System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
+        //System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
         return novos_pontos;
     }
     
@@ -64,10 +64,10 @@ public class Transformacoes {
                                      {Math.sin(Teta),Math.cos(Teta),0},
                                      {0,0,1}};
         
-        System.out.println();
+        /*System.out.println();
         System.out.println("Cos: " + Math.cos(Teta));
         System.out.println("Sen: " + Math.sin(Teta));
-        System.out.println();
+        System.out.println();*/
         int[] novos_pontos = new int[3];
         for(int i=0;i<3;i++){
             double soma=0.0;
@@ -81,7 +81,7 @@ public class Transformacoes {
             
             novos_pontos[i] = (int) soma;
         }
-        System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
+        //System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
         return novos_pontos; 
     }
     
@@ -104,7 +104,7 @@ public class Transformacoes {
             
             novos_pontos[i] = (int) soma;
         }
-        System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
+        //System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
         return novos_pontos;
     }
     
@@ -128,7 +128,7 @@ public class Transformacoes {
             
             novos_pontos[i] = (int) soma;
         }
-        System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
+        //System.out.println("x:" + novos_pontos[0]+ " y:" + novos_pontos[1] +" z:" + novos_pontos[2]);
         return novos_pontos; 
     }
 }
