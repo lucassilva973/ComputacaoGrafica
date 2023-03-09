@@ -61,16 +61,37 @@ public class Main {
                 
                 break;
             case 4:
-                d.circulo_parametrica(frame,panel,(int)size.getHeight(),(int)size.getWidth());
-                
+                System.out.print("Digite o raio: ");
+                int raio = entrada.nextInt();
+                d.circulo_parametrica(frame,panel,(int)size.getHeight(),(int)size.getWidth(),raio);
+                System.out.print("Deseja preencher o circulo? [1]sim / [2]nao\n");
+                int escolha = entrada.nextInt();
+                if(escolha == 1){
+                   
+                    d.PreencherCirculo_parametrica(frame, panel,(int)size.getHeight(),(int)size.getWidth(),raio);
+                }
                 break;
             case 5:
-                d.circulo_parametrico_otimo(frame,panel,(int)size.getHeight(),(int)size.getWidth());
-                
+                System.out.print("Digite o raio: ");
+                raio = entrada.nextInt();
+                d.circulo_parametrico_otimo(frame,panel,(int)size.getHeight(),(int)size.getWidth(),raio);
+                System.out.print("Deseja preencher o circulo? [1]sim / [2]nao\n");
+                int escolha1 = entrada.nextInt();
+                if(escolha1 == 1){
+                  
+                    d.PreencherCirculo_parametrica_otimo(frame, panel,(int)size.getHeight(),(int)size.getWidth(),raio);
+                }
                 break;
             case 6:
-                d.circulo_ponto_medio(frame, panel,(int)size.getHeight(),(int)size.getWidth());
-                
+                System.out.print("Digite o raio: ");
+                raio = entrada.nextInt();
+                d.circulo_ponto_medio(frame, panel,(int)size.getHeight(),(int)size.getWidth(),raio);
+                System.out.print("Deseja preencher o circulo? [1]sim / [2]nao\n");
+                int escolha2 = entrada.nextInt();
+                if(escolha2 == 1){
+                    
+                    d.PreencherCirculo_medio(frame, panel,(int)size.getHeight(),(int)size.getWidth(),raio);
+                }
                 break;
             case 7:
                 

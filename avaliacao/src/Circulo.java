@@ -22,40 +22,34 @@ public class Circulo {
     }
     
     // CIRCULO PARAMETRICA //////////////////////////////////////////////////////////////////////////
-    public static void circulo_parametrica(JFrame frame,JPanel panel, int altura, int largura){
+    public static void circulo_parametrica(JFrame frame,JPanel panel, int altura, int largura,int raio){
         int y, x, xc, yc;
         
         xc = largura/ 2;
         yc = altura/ 2;
         double t;
-        Scanner entrada = new Scanner(System.in);
-        System.out.print("Digite o raio");
-        int r = entrada.nextInt();
-        x = r;
+        
+        x = raio;
         y = 0;
         
         Graphics g = panel.getGraphics();   
-        for (t = 1.0; t < 360.0; t = t + 1.0){
+        for (t = 1.0; t < 360.0; t = t + 0.1){
             g.drawLine(x + xc, y + yc, x+ xc , y + yc);
-            x = (int) (r * Math.cos(Math.PI * t / 180));
-            y = (int) (r * Math.sin(Math.PI * t / 180));
+            x = (int) (raio * Math.cos(Math.PI * t / 180));
+            y = (int) (raio * Math.sin(Math.PI * t / 180));
             
             }
         }
         
         // CIRCULO PARAMETRICA OTIMO ////////////////////////////////////////////////////////////////////
-        public static void circulo_parametrico_otimo(JFrame frame,JPanel panel, int altura, int largura){
+        public static void circulo_parametrico_otimo(JFrame frame,JPanel panel, int altura, int largura, int raio){
             int xc, yc, xr, yr;
             double x, y, t;
-            
-            Scanner entrada = new Scanner(System.in);
-            System.out.print("Digite o raio: ");
-            int r = entrada.nextInt();
-            
+    
             xc = largura/2; // x do centro da circunferência
             yc = altura/2; // y do centro da circunferência
-            t = 1/(double) r;
-            x = (double)r;
+            t = 1/(double) raio;
+            x = (double)raio;
             y = 0;
             double c = Math.cos(t);
             double s = Math.sin(t);
@@ -69,15 +63,11 @@ public class Circulo {
         }
         
         // CIRCULO PONTO MEDIO ////////////////////////////////////////////////////////////////////
-        void circulo_ponto_medio(JFrame frame,JPanel panel, int altura, int largura) {
+        public static void circulo_ponto_medio(JFrame frame,JPanel panel, int altura, int largura,int raio) {
                 int xc, yc;
                 xc = largura / 2;
                 yc = altura / 2;
-                
-                Scanner entrada = new Scanner(System.in);
-                System.out.print("Digite o raio");
-                int raio = entrada.nextInt();
-                
+ 
                 int x = 0;
                 int y = raio;
                 double d = 5 / 4 - raio;
@@ -93,6 +83,28 @@ public class Circulo {
                 SimetriaOrdem8(frame, panel, x, y, xc, yc);
                 } /* while*/
             } /*pontomedio*/
+
+
+        public static void PreencherCirculo_medio(JFrame frame,JPanel panel, int altura, int largura,int raio){
+            while (raio > 0){
+                circulo_ponto_medio(frame, panel,altura,largura,raio);
+                raio--;
+            }
+        }
+
+        public static void PreencherCirculo_parametrica_otimo(JFrame frame,JPanel panel, int altura, int largura,int raio){
+            while (raio > 0){
+                circulo_parametrico_otimo(frame, panel,altura,largura,raio);
+                raio--;
+            }
+        }
+        
+        public static void PreencherCirculo_parametrica(JFrame frame,JPanel panel, int altura, int largura,int raio){
+            while (raio > 0){
+                circulo_parametrica(frame, panel,altura,largura,raio);
+                raio--;
+            }
+        }
 }
 
     
