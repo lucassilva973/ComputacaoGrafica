@@ -14,7 +14,7 @@ public class Main {
       JFrame frame = new JFrame();
       frame.setVisible(true);
       
-      frame.setSize((int)size.getHeight(), (int)size.getWidth());
+      frame.setSize((int)size.getWidth(), (int)size.getHeight());
       
       JPanel panel = new JPanel();
       frame.add(panel);
