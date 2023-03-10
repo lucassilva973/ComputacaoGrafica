@@ -14,10 +14,10 @@ public class Elipse extends JFrame {
 	Graphics g;
 	
     public  Elipse (int alt,int larg, int x ,int y){
-                setSize(larg,alt); //Determina o tamanho da tela/
-                setLocationRelativeTo(null);//centraliza a tela/
-                setDefaultCloseOperation(EXIT_ON_CLOSE);//termina o programa ao ser fechado/
-                setVisible(true);//permite visualização/
+                setSize(larg,alt); 
+                setLocationRelativeTo(null);
+                setDefaultCloseOperation(EXIT_ON_CLOSE);
+                setVisible(true);
                 this.x = x;
                 this.y = y;
             }
@@ -44,9 +44,8 @@ public class Elipse extends JFrame {
 
     public  void limpar_tela(Elipse e) {
 
-            Graphics g = getGraphics();//pega a resolução definida pelo costrutor/
-            g.clearRect(0, 0, e.getLarg(), e.getAlt());//*função resevada da bliblioteca 
-                                                                            //que limpa a tela*/
+            Graphics g = getGraphics();
+            g.clearRect(0, 0, e.getLarg(), e.getAlt());
 
              }
 

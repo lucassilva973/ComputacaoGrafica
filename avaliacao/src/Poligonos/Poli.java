@@ -22,10 +22,10 @@ public class Poli extends JFrame  {
 	private int Pontos_n = 15;
 	
     public Poli (int alt,int larg){
-                setSize(larg,alt);/*Determina o tamanho da tela*/
-                setLocationRelativeTo(null);/*centraliza a tela*/
-                setDefaultCloseOperation(EXIT_ON_CLOSE);/*termina o programa ao ser fechado*/
-                setVisible(true);/*permite visualização*/
+                setSize(larg,alt);
+                setLocationRelativeTo(null);
+                setDefaultCloseOperation(EXIT_ON_CLOSE);
+                setVisible(true);
             }
 
     public int getAlt() {
@@ -49,9 +49,8 @@ public class Poli extends JFrame  {
 
     public  void limpar_tela(Poli p) {
 
-            Graphics g = getGraphics();/*pega a resolução definida pelo costrutor*/
-            g.clearRect(0, 0, p.getLarg(), p.getAlt());/*função resevada da bliblioteca 
-                                                                            que limpa a tela*/
+            Graphics g = getGraphics();
+            g.clearRect(0, 0, p.getLarg(), p.getAlt());
 
              }
 
@@ -63,7 +62,7 @@ public class Poli extends JFrame  {
              for (int i = 0; i < Pontos_n; i++) {
              int x2 = Pontos_x[i];
              int y2 = Pontos_y[i];
-             int x3 = Pontos_x[(i + 1) % Pontos_n];/* e necessario fazer a divisão para garantir que pecorremos todos os pontos*/
+             int x3 = Pontos_x[(i + 1) % Pontos_n];
              int y3 = Pontos_y[(i + 1) % Pontos_n];
              g.drawLine(larg/2 + x2, alt/2 - y2, larg/2 + x3, alt/2 - y3);
              }
@@ -71,37 +70,38 @@ public class Poli extends JFrame  {
 
     public void pintar () {
                Graphics g = getGraphics();
-                /*import java.awt.Polygon;*/
-               Polygon poly = new Polygon(Pontos_x, Pontos_y, Pontos_n);/*a criação desse objeto e necessaria para defirnimos o y min e o y max*/
+                
+               Polygon poly = new Polygon(Pontos_x, Pontos_y, Pontos_n);
 
-               int[] scan = new int[getSize().width];/*cria uma lista com toda o tamanho da altura da tela*/
+               int[] scan = new int[getSize().width];
+               
+               //pega o minimo e o maximo de y
+               int minY = poly.getBounds().y;
+               int maxY = minY + poly.getBounds().height;
 
-               int minY = poly.getBounds().y;/*pega o y min do poligono*/
-               int maxY = minY + poly.getBounds().height;/*pega 0 y max do poligono*/
-
-               for (int y = minY; y < maxY; y++) {/*responsavel por pecorrer o y min ate o y max*/
-                     Arrays.fill(scan, 0);/*responsavel por pecorrer a tela*/
-                     int x1 = Integer.MAX_VALUE;/*cria um interio de valor maximo possivel. Importante para definir o valor de x*/
+               for (int y = minY; y < maxY; y++) {
+                     Arrays.fill(scan, 0);//percorre a tela
+                     int x1 = Integer.MAX_VALUE;
 
                      for (int i = 0; i < Pontos_n; i++) {
                         int x2 = Pontos_x[i];
                         int y2 = Pontos_y[i];
-                        int x3 = Pontos_x[(i + 1) % Pontos_n];/* e necessario fazer a divisão para garantir que pecorremos todos os pontos*/
+                        int x3 = Pontos_x[(i + 1) % Pontos_n];
                         int y3 = Pontos_y[(i + 1) % Pontos_n];
 
-                        if ((y2 < y && y3 >= y) || (y3 < y && y2 >= y)) {/*verifica o valor de ymin e ymax em relação aos nossos vertices*/
-                           int x = x2 + (y - y2) * (x3 - x2) / (y3 - y2);/*calcula o valor de x*/
-                           scan[x]++;/*registra a tela*/
-
+                        if ((y2 < y && y3 >= y) || (y3 < y && y2 >= y)) {
+                           int x = x2 + (y - y2) * (x3 - x2) / (y3 - y2);
+                           scan[x]++;
+                           //menor ponto de x
                            if (x < x1) {
-                              x1 = x;}/*verifica o menor ponto de x*/
+                              x1 = x;}
                         }
                      }
 
-                     boolean fora = false;/*booleano responsavel por verificar se a varredura esta fora ou dentro do poligono*/
+                     boolean fora = false;
 
                         for (int x = x1; x < getSize().width; x++) {
-                            if (scan[x] % 2 == 1) {/*verifica se esta fora da tela*/
+                            if (scan[x] % 2 == 1) {
                                 fora = !fora;
                             }
 
