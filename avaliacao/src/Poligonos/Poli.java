@@ -9,24 +9,23 @@ import java.awt.Toolkit;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.JFrame;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 
 
-public class Poli extends JFrame  {
+public class Poli {
 
 	int alt,larg;
 	Graphics g;
-	
+	JFrame frame;
 	private int[] Pontos_x = {200,180,175,165,120,80,10,55,190,325,370,300,260,215,205};
-	private int[] Pontos_y = {140,140,160,130,130,180,180,90,50,90,180,180,130,130,160};
+	private int[] Pontos_y = {140,140,160,130,130,180,180,90,25,90,180,180,130,130,160};
 	private int Pontos_n = 15;
 	
-    public Poli (int alt,int larg){
-                setSize(larg,alt);
-                setLocationRelativeTo(null);
-                setDefaultCloseOperation(EXIT_ON_CLOSE);
-                setVisible(true);
-            }
+    public Poli (JFrame frame){
+                
+                this.frame = frame;
+    }
 
     public int getAlt() {
             return alt;
@@ -46,34 +45,28 @@ public class Poli extends JFrame  {
     public void setLarg(int larg) {
             this.larg = larg;
     }
-
-    public  void limpar_tela(Poli p) {
-
-            Graphics g = getGraphics();
-            g.clearRect(0, 0, p.getLarg(), p.getAlt());
-
-             }
+            
 
     public void desenhar(){
-            Graphics g = getGraphics();
+            Graphics g = frame.getGraphics();
 
-             Polygon poly = new Polygon(Pontos_x, Pontos_y, Pontos_n);
+            Polygon poly = new Polygon(Pontos_x, Pontos_y, Pontos_n);
 
-             for (int i = 0; i < Pontos_n; i++) {
-             int x2 = Pontos_x[i];
-             int y2 = Pontos_y[i];
-             int x3 = Pontos_x[(i + 1) % Pontos_n];
-             int y3 = Pontos_y[(i + 1) % Pontos_n];
-             g.drawLine(larg/2 + x2, alt/2 - y2, larg/2 + x3, alt/2 - y3);
-             }
-             }
+            for (int i = 0; i < Pontos_n; i++) {
+            int x2 = Pontos_x[i];
+            int y2 = Pontos_y[i];
+            int x3 = Pontos_x[(i + 1) % Pontos_n];
+            int y3 = Pontos_y[(i + 1) % Pontos_n];
+            g.drawLine(larg/2 + x2, alt/2 - y2, larg/2 + x3, alt/2 - y3);
+            }
+        }
 
     public void pintar () {
-               Graphics g = getGraphics();
+               Graphics g = frame.getGraphics();
                 
                Polygon poly = new Polygon(Pontos_x, Pontos_y, Pontos_n);
 
-               int[] scan = new int[getSize().width];
+               int[] scan = new int[frame.getSize().width];
                
                //pega o minimo e o maximo de y
                int minY = poly.getBounds().y;
@@ -100,7 +93,7 @@ public class Poli extends JFrame  {
 
                      boolean fora = false;
 
-                        for (int x = x1; x < getSize().width; x++) {
+                        for (int x = x1; x < frame.getSize().width; x++) {
                             if (scan[x] % 2 == 1) {
                                 fora = !fora;
                             }
@@ -128,50 +121,50 @@ public class Poli extends JFrame  {
 //    }
 
 
-    public static void main(String[] args) {
-
-            Scanner input = new Scanner(System.in);	
-            int opcao;
-
-            
-            Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-            
-            int larg = (int) size.getWidth();
-            int alt =  (int) size.getHeight();
-
-            Poli p= new Poli(alt,larg);
-
-            p.setAlt(alt);
-            p.setLarg(larg);
-
-
-        while(true) {
-
-            System.out.printf("[0] Limpa tela \n"+ 
-                              "[1] Desenha \n"+
-                              "[2] preenchimento \n"+
-                              "[3] sair \n");
-
-            opcao=input.nextInt();
-
-            if(opcao==0) {
-                p.limpar_tela(p);
-            }
-            if(opcao==1) {
-                System.out.println("Poligono desenhado");
-                p.desenhar();
-
-            }
-            if(opcao==2) {
-                System.out.println("Poligono desenhado");
-               
-                //p.Circulo();
-                p.pintar();
-            }
-            if(opcao==3) {
-               System.exit(0);
-            }
-
-        }
-    }
+//    public static void main(String[] args) {
+//
+//            Scanner input = new Scanner(System.in);	
+//            int opcao;
+//
+//            
+//            Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+//            
+//            int larg = (int) size.getWidth();
+//            int alt =  (int) size.getHeight();
+//
+//            Poli p= new Poli(alt,larg);
+//
+//            p.setAlt(alt);
+//            p.setLarg(larg);
+//
+//
+//        while(true) {
+//
+//            System.out.printf("[0] Limpa tela \n"+ 
+//                              "[1] Desenha \n"+
+//                              "[2] preenchimento \n"+
+//                              "[3] sair \n");
+//
+//            opcao=input.nextInt();
+//
+//            if(opcao==0) {
+//                p.limpar_tela(p);
+//            }
+//            if(opcao==1) {
+//                System.out.println("Poligono desenhado");
+//                p.desenhar();
+//
+//            }
+//            if(opcao==2) {
+//                System.out.println("Poligono desenhado");
+//               
+//                //p.Circulo();
+//                p.pintar();
+//            }
+//            if(opcao==3) {
+//               System.exit(0);
+//            }
+//
+//        }
+//    }
 }

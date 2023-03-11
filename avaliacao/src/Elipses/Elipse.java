@@ -8,16 +8,15 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 
-public class Elipse extends JFrame {
+public class Elipse {
 
-	int alt,larg, x, y;
+	public int alt,larg, x, y;
+        JFrame frame;
 	Graphics g;
 	
-    public  Elipse (int alt,int larg, int x ,int y){
-                setSize(larg,alt); 
-                setLocationRelativeTo(null);
-                setDefaultCloseOperation(EXIT_ON_CLOSE);
-                setVisible(true);
+    public  Elipse (JFrame frame,int x ,int y){
+
+                this.frame = frame;
                 this.x = x;
                 this.y = y;
             }
@@ -42,16 +41,8 @@ public class Elipse extends JFrame {
             this.larg = larg;
     }
 
-    public  void limpar_tela(Elipse e) {
-
-            Graphics g = getGraphics();
-            g.clearRect(0, 0, e.getLarg(), e.getAlt());
-
-             }
-
-
     public void Cria_elipse() {
-            Graphics g = getGraphics();
+            Graphics g = frame.getGraphics();
 
             int alt,larg;
             alt=this.alt/2;
@@ -106,7 +97,7 @@ public class Elipse extends JFrame {
     public void preencher(){
 
     for(int aux=0;aux<x || aux<y ;x--,y --) {
-            Graphics g = getGraphics();
+            Graphics g = frame.getGraphics();
 
             int alt,larg;
             alt=this.alt/2;
@@ -158,54 +149,6 @@ public class Elipse extends JFrame {
           }
              }
             }
-    }
-
-	public static void main(String[] args) {
-
-		Scanner input = new Scanner(System.in);	
-		Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-                int opcao,raiox,raioy;
-		int larg = (int) size.getWidth();
-		int alt =  (int) size.getHeight();
-		
-		Elipse elipse= new Elipse(alt,larg,100,200);
-		
-		elipse.setAlt(alt);
-		elipse.setLarg(larg);
-		
-            while(true) {
-			
-                        
-			System.out.printf("[0] Limpa tela \n"+ 
-                                          "[1] Digite os valores a elipse \n"+
-                                          "[2] Desenha elipse \n"+
-                                          "[3] preenchimento \n"+
-                                          "[4] sair \n");
-			
-			opcao=input.nextInt();
-			
-			if(opcao==0) {
-				elipse.limpar_tela(elipse);
-			}
-			if(opcao==1) {
-				System.out.println("digite os valores da elipse");
-                                System.out.println("digite o valor do raio do eixo x");
-                                elipse.x=input.nextInt();
-                                System.out.println("digite o valor do raio do eixo y");
-                                elipse.y=input.nextInt();
-			}
-                        if(opcao==2) {
-				elipse.Cria_elipse();
-			}
-			if(opcao==3) {	
-				elipse.preencher();
-			}
-			if(opcao==4) {
-				System.exit(0);
-			}
-			}
-	}
-
-  
+    } 
 
 }
