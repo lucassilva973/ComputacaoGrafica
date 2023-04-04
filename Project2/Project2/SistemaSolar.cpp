@@ -81,7 +81,7 @@ void Timer(int value)
 	rotY_jupiter = (rotY_jupiter + 1 * Velocidade) % 360; //0.41
 	rotY_saturno = (rotY_saturno + 1 * Velocidade) % 360; //0.45
 	rotY_urano = (rotY_urano + 1 * Velocidade) % 360; //0.72
-	rotY_netuno = (rotY_netuno + 1 * Velocidade/6) % 360; //0.67
+	rotY_netuno = (rotY_netuno + 1 * Velocidade) % 360; //0.67
 	
 
 	//mercury
@@ -91,8 +91,8 @@ void Timer(int value)
 
 	//venus
 	angulo_venus += VelocidadeTranslacao / 12,27;
-	if (angulo_mecury > 360)
-		angulo_mecury = angulo_mecury - 360;
+	if (angulo_venus > 360)
+		angulo_venus = angulo_venus - 360;
 
 	//Terra
 	angulo += VelocidadeTranslacao/20;
@@ -101,28 +101,28 @@ void Timer(int value)
 
 	//marte
 	angulo_marte += VelocidadeTranslacao / 37.59;
-	if (angulo_mecury > 360)
-		angulo_mecury = angulo_mecury - 360;
+	if (angulo_marte > 360)
+		angulo_marte = angulo_marte - 360;
 
 	//jupiter
 	angulo_jupiter += VelocidadeTranslacao / 237.15;
-	if (angulo_mecury > 360)
-		angulo_mecury = angulo_mecury - 360;
+	if (angulo_jupiter > 360)
+		angulo_jupiter = angulo_jupiter - 360;
 
 	//saturno
 	angulo_saturno += VelocidadeTranslacao / 589.15;
-	if (angulo_mecury > 360)
-		angulo_mecury = angulo_mecury - 360;
+	if (angulo_saturno > 360)
+		angulo_saturno = angulo_saturno - 360;
 
 	//urano
 	angulo_urano += VelocidadeTranslacao / 1680.16;
-	if (angulo_mecury > 360)
-		angulo_mecury = angulo_mecury - 360;
+	if (angulo_urano > 360)
+		angulo_urano = angulo_urano - 360;
 
 	//netuno
 	angulo_netuno += VelocidadeTranslacao / 3295.78;
-	if (angulo_mecury > 360)
-		angulo_mecury = angulo_mecury - 360;
+	if (angulo_netuno > 360)
+		angulo_netuno = angulo_netuno - 360;
 
     glutPostRedisplay();
     glutTimerFunc(10,Timer, 1);
@@ -217,9 +217,9 @@ void Espaco(void)
 	glColor3f(1.0, 1.0, 1.0);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 0.0f); glVertex2f(-posicao_espaco_x, -posicao_espaco_y);
-	glTexCoord2f(0.0f, 1.0f); glVertex2f(-posicao_espaco_x, posicao_espaco_x);
-	glTexCoord2f(1.0f, 1.0f); glVertex2f(posicao_espaco_x, posicao_espaco_x);
-	glTexCoord2f(1.0f, 0.0f); glVertex2f(posicao_espaco_x, -posicao_espaco_x);
+	glTexCoord2f(0.0f, 1.0f); glVertex2f(-posicao_espaco_x, posicao_espaco_y);
+	glTexCoord2f(1.0f, 1.0f); glVertex2f(posicao_espaco_x, posicao_espaco_y);
+	glTexCoord2f(1.0f, 0.0f); glVertex2f(posicao_espaco_x, -posicao_espaco_y);
 	glEnd();
 	glPopMatrix();
 }
@@ -864,7 +864,6 @@ void Creditos() {
 
 	//textos
 	glPushMatrix();
-	 char texto[14] = "Sistema Solar";
 	 char Computacao_grafica[19] = "Computacao Grafica";
 	 char lima_junio[23] = "Professor: Lima Junior";
 	 char alunos[31] = "Joao Lucas & Antonio Frabricio";
@@ -1050,9 +1049,6 @@ void MenuControle(int op)
 {
 	switch (op) {
 	
-		Velocidade = 0;
-		VelocidadeTranslacao = 0.0;
-		break;
 	case 1:
 		if (ativa_animacao == 1) {
 
@@ -1074,7 +1070,7 @@ void MenuControle(int op)
 		
 		break;
 	case 2:
-		VelocidadeTranslacao += 1.0;
+		VelocidadeTranslacao += 5.0;
 		break;
 	case 3:
 		
