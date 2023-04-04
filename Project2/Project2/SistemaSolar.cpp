@@ -193,16 +193,16 @@ void Inicializar(void)
  glGenTextures(1, &netuno);
 
  carregaTextura(logoUERN, "imagens/UERN.png");
- carregaTextura(espaco, "imagens/espaco2.png");
- carregaTextura(sol, "imagens/sol.png");
- carregaTextura(mercury, "imagens/mercury.png");
- carregaTextura(venus, "imagens/venus.png");
- carregaTextura(terra, "imagens/terra.png");
- carregaTextura(marte, "imagens/marte.png");
- carregaTextura(jupiter, "imagens/jupiter.png");
- carregaTextura(saturno, "imagens/saturno.png");
- carregaTextura(urano, "imagens/urano.png");
- carregaTextura(netuno, "imagens/netuno.png");
+ carregaTextura(espaco, "imagens/espaco.png");
+ carregaTextura(sol, "imagens/sun.png");
+ carregaTextura(mercury, "imagens/mercury1.png");
+ carregaTextura(venus, "imagens/venus1.png");
+ carregaTextura(terra, "imagens/terra1.png");
+ carregaTextura(marte, "imagens/marte1.png");
+ carregaTextura(jupiter, "imagens/jupiter1.png");
+ carregaTextura(saturno, "imagens/saturno1.png");
+ carregaTextura(urano, "imagens/urano1.png");
+ carregaTextura(netuno, "imagens/netuno1.png");
  
  // Posicionando o observador virtual
  Angulo=60;
@@ -1041,9 +1041,6 @@ void verPlanetas(int op)
 		Velocidade = 1;
 		break;
 		
-		
-		
-	
 	}
 	glutPostRedisplay();
 
